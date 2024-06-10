@@ -21,6 +21,10 @@ Dataset Dataloading includes the csv files listing the data of Panda-70M and the
 Splitting includes the code to split a long video into multiple semantics-consistent short clips.
 Captioning includes the proposed video captioning model trained on Panda-70M.
 
+## Download
+
+## Dataformat
+
 ### Metadata format
 ```
 [
@@ -56,9 +60,9 @@ Captioning includes the proposed video captioning model trained on Panda-70M.
         },
         "misc": {
             "frame_caption": [
-                "a person standing in a room with a laptop on their lap . ",
-                "a black and blue background with the name of the series . ",
-                "a black and white image of the words manga and comics . "
+                "a person standing in a room with a laptop on their lap. ",
+                "a black and blue background with the name of the series. ",
+                "a black and white image of the words manga and comics. "
             ],
             "music_caption": [
                 {
@@ -92,8 +96,7 @@ The publish version code is still under development.
 **Validation.**
 TODO
 
-## Cite $M^{2}Chat$
-If you use $M^{2}Chat$ in your research, please cite our work by using the following BibTeX entry:
+## Cite MMtrail
 ```
 TODO
 ```
