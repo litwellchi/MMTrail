@@ -15,11 +15,14 @@ This is the offical Github repository of MMTrail-20M
 * 【2024/06/10】 We build our github page
 
 ## Introduction
-Panda-70M is a large-scale dataset with 70M high-quality video-caption pairs. This repository have three sections:
-
-Dataset Dataloading includes the csv files listing the data of Panda-70M and the code to download the dataset.
-Splitting includes the code to split a long video into multiple semantics-consistent short clips.
-Captioning includes the proposed video captioning model trained on Panda-70M.
+Massive multi-modality datasets play a significant role in facilitating the success of large video-language models. 
+However, current video-language datasets primarily provide text descriptions for visual frames, considering audio to be weakly related information. They usually overlook exploring the potential of inherent audio-visual correlation, leading to monotonous annotation within each modality instead of comprehensive and precise descriptions. Such ignorance results in the difficulty of multiple cross-modality studies.
+To fulfill this gap, we present MMTrail, a large-scale multi-modality video-language dataset incorporating more than 20M trailer clips with high-quality multimodal captions. 
+Trailers preview full-length video works and integrate context, visual frames, and background music. In particular, the trailer has two main advantages: 
+(1) the topics are diverse, and the content characters are of various types, \eg, film,  news, and gaming.
+(2) the corresponding background music is custom-designed, making it more coherent with the visual context. 
+Upon these insights, we propose a systemic captioning framework, achieving various modality annotations with more than 27.1k hours of trailer videos. Here, to ensure the caption retains music perspective while preserving the authority of visual context, we leverage the advanced LLM to merge all annotations adaptively.
+In this fashion, our MMtrail dataset potentially paves the path for fine-grained large multimodal-language model training. In experiments, we provide evaluation metrics and benchmark results on our dataset, demonstrating the high 
 
 ## Download
 
