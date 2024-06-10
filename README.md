@@ -1,10 +1,9 @@
-## MMTrail: A Multimodal Trailer Video Dataset with Language and Music Descriptions
-
-
+# [🎞]MMTrail: A Multimodal Trailer Video Dataset with Language and Music Descriptions
+This is the offical Github repository of MMTrail-20M
 [![arXiv](https://img.shields.io/badge/arXiv-2311.17963-b31b1b.svg)](https://github.com/litwellchi/MMTrail)
 [![Project Page](https://img.shields.io/badge/Project-Website-green)](https://github.com/litwellchi/MMTrail)
 
-##TODO
+## TODO
 - [ ] Testing Prompts
 - [ ] Release MMTrail-3M metadata
 - [ ] Release Processing code
@@ -12,6 +11,13 @@
 
 ## Updates!!
 * 【2024/06/10】 We build our github page
+
+## Introduction
+Panda-70M is a large-scale dataset with 70M high-quality video-caption pairs. This repository have three sections:
+
+Dataset Dataloading includes the csv files listing the data of Panda-70M and the code to download the dataset.
+Splitting includes the code to split a long video into multiple semantics-consistent short clips.
+Captioning includes the proposed video captioning model trained on Panda-70M.
 
 ### Metadata format
 ```
