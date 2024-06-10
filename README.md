@@ -23,9 +23,15 @@ Captioning includes the proposed video captioning model trained on Panda-70M.
 
 ## Download
 
-## Dataformat
+ | Split           | Download | # Samples | Video Duration | Storage Space|
+  |-----------------|----------|-----------------|-----------|----------------|--------------|
+  | Training (20M)  | TODO (19T) | 20M | 27.1 khrs | ~8.0 TB |
+  | Training (3M)   | TODO (-)  | 12.2 khrs | ~1.6 TB |
+  | Testing         | TODO (2.77 MB)  | 1,000      | 3.5 hrs  | 794 Mb |
 
-### Metadata format
+
+  
+## Metadata format
 ```
 [
     {
