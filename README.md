@@ -5,6 +5,11 @@ This is the offical Github repository of MMTrail-20M
 [![arXiv](https://img.shields.io/badge/arXiv-2311.17963-b31b1b.svg)](https://github.com/litwellchi/MMTrail)
 [![Project Page](https://img.shields.io/badge/Project-Website-green)](https://github.com/litwellchi/MMTrail)
 
+
+<div align='center'>
+<img src="examples/teaser.png" class="interpolation-image" alt="teaser." height="96%" width="96%" />
+</div>
+
 ## TODO
 - [ ] Testing Prompts
 - [ ] Release MMTrail-3M metadata
