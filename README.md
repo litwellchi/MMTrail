@@ -96,11 +96,13 @@ Captioning includes the proposed video captioning model trained on Panda-70M.
 ```
 
 
-### Notification
+## Notification
 The publish version code is still under development. 
 ### Tutorials
 **Validation.**
 TODO
+
+## Licience
 
 ## Cite MMtrail
 ```
