@@ -1,0 +1,723 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>CoCoGesture</title>
+
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Kaushan+Script|Droid+Serif:400,700,400italic,700italic|Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/solid.css" integrity="sha384-VGP9aw4WtGH/uPAOseYxZ+Vz/vaTb1ehm1bwx92Fm8dTrE+3boLfF1SpAtB1z7HW" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css" integrity="sha384-1rquJLNOM3ijoueaaeS5m+McXPJCGdr5HcA03/VHXxcp2kX2sUrQDmFc3jR5i/C7" crossorigin="anonymous">
+	<link rel="icon" href="./images/GES-X_logo.PNG?version=1" type="image/x-icon">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/agency.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <style>
+        /* Custom styles for the carousel controls */
+        .carousel-control-prev, .carousel-control-next {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .carousel-control-prev {
+            left: 20px;
+        }
+
+        .carousel-control-next {
+            right: 20px;
+        }
+
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            display: none; /* Hide the default icons */
+        }
+
+        .carousel-control-prev::after, .carousel-control-next::after {
+            content: "";
+            display: block;
+            width: 0; 
+            height: 0; 
+            border-style: solid;
+        }
+
+        .carousel-control-prev::after {
+            border-width: 10px 18px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        .carousel-control-next::after {
+            border-width: 10px 0 10px 18px;
+            border-color: transparent transparent transparent white;
+        }
+    </style>
+    
+  </head>
+
+  <body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav", style = "background-color: rgba(159, 193, 213, 0.779)">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top"> <img style="width:10em;" src="./images/CoCoG_logo.PNG" alt="Logo"><p style="width:8em; font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15px; font-style: italic; color: white; margin-top:-27px; margin-left:3px">Toward Coherent Co-speech 3D
+          Gesture Generation in the Wild</p></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item" style="font-size: 110%">
+              <a class="nav-link js-scroll-trigger" href="#dataset">Dataset</a>
+            </li>
+            <li class="nav-item" style="font-size: 110%">
+              <a class="nav-link js-scroll-trigger" href="#model">Model</a>
+            </li>
+            <li class="nav-item" style="font-size: 110%">
+              <a class="nav-link js-scroll-trigger" href="#results">results</a>
+            </li>
+			      <li class="nav-item" style="font-size: 110%">
+              <a class="nav-link js-scroll-trigger" href="#experiments">experiments</a>
+            </li>
+            <li class="nav-item" style="font-size: 110%">
+              <a class="nav-link js-scroll-trigger" href="#metadata">metadata</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- Header -->
+    <header class="masthead">
+      <div class="container">
+            <div class="row align-items-center intro-text">
+              <!-- <div class="intro-lead-in" style="margin-left: 80px">CoCoGesture</div> -->
+              <!-- <video controls class="d-block w-100">
+                <source src="./videos/ges_demo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video> -->
+              <div class="intro-lead-in">GES-X: a Large-scale 3D Co-speech Gesture Dataset</div>
+              <div class="w-20">
+                  <p>We collect a large-scale 3D meshed co-speech whole-body dataset that contains more 
+                    than 40M posture instances across about 4.3K aligned speaker audios, dubbed <b>GES-X</b>. To the
+                    best of our knowledge, this is the largest whole-body meshed 3D co-speech gesture dataset, whose 
+                    duration is 15 times of the next largest one.</p >
+              </div>
+              <div class="w-80">
+                <img style="float: right; width: 90%" src="./images/pie.png" alt="">
+              </div>
+        </div>
+      </div>
+    </header>
+
+<!-- Dataset -->
+<section class="bg-transparent" id="dataset">
+  <div class="container">
+    <div class="row">
+      <!-- news column -->
+      <div class="col-md-7">
+        <h4 class="service-heading">Basic informations</h4>
+        <ul class="text-muted">
+          <li class="text-muted">Videos are collected from talk show videos.</li>
+          <li class="text-muted"><b>4.3K videos</b> in total, including both standing and sitting positions.</li>
+          <li class="text-muted">Integrates a wide range of attributes, including facial, mesh, phoneme, text, body, hand, and joint annotations.</li>
+        </ul>
+      </div>
+      <!-- characteristics column -->
+      <div class="col-md-5">
+        <h4 class="service-heading">Basic statistics</h4>
+        <ul class="text-muted">
+          <li class="text-muted">Total duration of videos is <b>450 hours</b>.</li>
+          <li class="text-muted">Average duration of videos is <b>13min</b>.</li>
+          <li class="text-muted">More than <b>40M</b> gesture frames.</li>
+          <li class="text-muted"><b>80,720</b> word corpus in total.</li>
+        </ul>
+      </div>
+
+    <!-- video banner row -->
+    <div class="row text-center">
+      <div class="col-md-12" style="text-align:left">
+        <h4 class="section-subheading" style="text-align:left; margin-top:40px">Examples</h4>
+      </div>
+      <p style="text-align: left; margin-left: 15px; margin-bottom: 20px; color: rgb(171, 171, 171)">
+        Some video-pose examples in GES-X dataset. Original video clips are shown on the left, and the corresponding pose sequences are shown on the right. <br>
+        If it takes too long to load the videos below, please view the videos <a href="https://www.udrop.com/folder/d2824e20b038aa39c1e46fec61f4163c/GES-X">here.</a>
+      </p>
+	   <div class="col-md-12" style="text-align:left">
+      <div class="container">
+          <!-- Carousel -->
+          <div id="carouselExampleIndicators" class="carousel slide">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="d-flex justify-content-center">
+                  <div class="col-md-8">
+                    <video controls class="d-block w-100">
+                      <source src="./videos/Ges_X_v1/1w3NXBXdY5c_0000007_both.mov" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                  <div class="col-md-8">
+                    <video controls class="d-block w-100">
+                      <source src="./videos/Ges_X_v1/3VTsIju1dLI_0000077_both.mov" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                  <div class="col-md-8">
+                    <video controls class="d-block w-100">
+                      <source src="./videos/Ges_X_v1/mYS2CcIdW1M_0000013_both.mov" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              </div>
+                <div class="carousel-item">
+                  <div class="d-flex justify-content-center">
+                    <div class="col-md-8">
+                      <video controls class="d-block w-100">
+                        <source src="./videos/Ges_X_v1/U5-yBjKKicA_0000030_both.mov" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="d-flex justify-content-center">
+                    <div class="col-md-8">
+                      <video controls class="d-block w-100">
+                        <source src="./videos/Ges_X_v1/5foou7mIA0w_0000027_both.mov" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="d-flex justify-content-center">
+                    <div class="col-md-8">
+                      <video controls class="d-block w-100">
+                        <source src="./videos/Ges_X_v1/U5-yBjKKicA_0000022_both.mov" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>  
+  </div>
+</div>
+</div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center" style="margin-bottom: -30px">
+        <h2 class="section-heading text-uppercase" style="color: rgb(90, 90, 90); margin-top: 90px">GES-X Statistics</h2>
+        <h3 class="section-subheading" style="color: rgb(171, 171, 171)">Dataset Analysis and Statistics</h3>
+      </div>
+    </div>
+	<h5 class="section-subheading" style="text-align:left; color: rgb(100, 100, 100); margin-top: 20px"> Overview of GES-X Dataset:</h5>
+	    <div class="row justify-content-md-center text-center">
+      <div class="col-md centered" style="padding:1rem;">
+        <img src="./images/dataset_table.jpg" style="width: 90%" class="img-responsive"/> 
+      </div>
+      <p class="text-muted" style="text-align:left; margin-left:15px"> 
+		Statistics comparison of our GES-X with existing ones. The dotted line “- - -” separates
+    whether the posture in the dataset is built based on the mesh. As for the duration of meshed whole body
+    co-speech gesture datasets, our GES-X is 15 times of the second best one (i.e.BEAT2).
+      </p>
+    </div>
+	
+	</br>
+	<h5 class="section-subheading" style="text-align:left; margin-top:20px; color: rgb(100, 100, 100)"> Dataset statistical comparison:</h5>
+	</br>
+  <div class="row">
+    <!-- news column -->
+    <div class="col-md-6">
+      <div class="col-md centered" style="margin-top: 28px; margin-left: -20px">
+        <img src="./images/word_corpus.svg" style="width: 100%" class="img-responsive"/> 
+      </div>
+    </div>
+    <!-- characteristics column -->
+    <div class="col-md-5">
+      <div class="col-md centered" style="padding:1rem;">
+        <img src="./images/motion_degree.svg" style="width: 90%" class="img-responsive"/> 
+      </div>
+    </div>
+    <p class="text-muted" style="text-align:left; margin-left:15px"> 
+      Dataset statistical comparison between our
+      GES-X and existing meshed co-speech gesture datasets
+      (i.e.BEAT2, TalkSHOW). Our GES-X has a
+      much larger word corpus and a more widely uniform
+      distributed gesture motion degree.
+    </p>
+	  </div>
+    </div>
+  </div>
+</section>
+
+<!-- Model -->
+<section id="model">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center" style="margin-bottom: -30px">
+        <h2 class="section-heading" style="color: rgb(90, 90, 90); margin-top: 30px">CoCoGesture</h2>
+        <h3 class="section-subheading" style="color: rgb(171, 171, 171)">Our framework CoCoGesture and key module Mixture-of-Gesture-Experts (MoGE) block. </h3>
+      </div>
+    </div>
+
+  <h5 class="section-subheading" style="text-align:left; color: rgb(100, 100, 100); margin-top: 20px">Task Introduction</h5>
+    <div class="row text-center">
+      <p class="text-muted" style="text-align:left; margin-left:15px"> 
+        In our work, we focus on the task of vivid and diverse co-speech 3D gesture generation from in-the-wild human voices.<br> Details about our task are shown in the figure below:
+      </p>
+    </div>
+    <div class="col-md centered" style="padding:1rem; margin-top: 10px; ">
+      <img src="./images/teaser.svg" style="width: 100%" class="img-responsive"/> 
+    </div>
+
+
+</br>
+	<h5 class="section-subheading" style="text-align:left; margin-top:20px; color: rgb(100, 100, 100)">CoCoGesture Framework</h5>
+	    <div class="row justify-content-md-center text-center">
+      <div class="col-md centered" style="padding:1rem; margin-top:20px; ">
+        <img src="./images/pipeline.png" style="width: 100%" class="img-responsive"/> 
+      </div>
+      <p class="text-muted" style="text-align:left; margin-left:15px"> 
+        Along with GES-X, we proposed <b>CoCoGesture</b>, a novel framework enabling vivid and diverse
+        gesture synthesis from unseen voice of human speech prompts. Our key insight
+        is built upon the custom-designed pretrain-fintune training paradigm.
+      </p>
+    </div>
+	
+	</br>
+	<h5 class="section-subheading" style="text-align:left; margin-top:20px; color: rgb(100, 100, 100)">Mixture-of-Gesture-Experts (MoGE)</h5>
+	<div class="row justify-content-md-center text-center">
+    <div class="col-md centered" style="padding:1rem; margin-top:20px; ">
+      <img src="./images/MoGE.svg" style="width: 60%" class="img-responsive"/> 
+    </div>
+    <p class="text-muted" style="text-align:left; margin-left:15px"> 
+      Moreover, we designed a novel Mixture-of-Gesture-Experts (MoGE) block to adaptively fuse the audio 
+      embedding from the human speech and the gesture features from the pre-trained 
+      gesture experts with a routing mechanism. <br>
+      Such an effective manner ensures 
+      audio embedding is temporal coordinated with motion features while preserving the vivid and diverse gesture generation. 
+  </div>
+	  </div>
+</section>
+
+<!-- Results -->
+<section id="results">
+  <div class="col-md-12" style="text-align:left">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center" style="margin-bottom: -50px; margin-top: -40px">
+        <h2 class="section-heading" style="color: rgb(90, 90, 90); margin-top: 30px">CoCoGesture Results</h2>
+        <h3 class="section-subheading" style="color: rgb(171, 171, 171)">Visualization of Our Results </h3
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-12" style="text-align:left">
+  <div class="container">
+    <p style="text-align: left; margin-left: 15px; margin-bottom: 20px; color: rgb(171, 171, 171)">
+      If it takes too long to load the videos below, please view the videos <a href="https://www.udrop.com/LLE6/ges_demo.mp4">here.</a>
+    </p>
+    <div class="row">
+      <video controls class="d-block w-100">
+        <source src="./videos/ges_demo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    <!-- Carousel -->
+    <!-- <div id="carouselExampleIndicators1" class="carousel slide">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators1" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators1" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators1" data-slide-to="3"></li>
+        <li data-target="#carouselExampleIndicators1" data-slide-to="4"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row">
+            <div class="col-md-6">
+              <video controls class="d-block w-100">
+                <source src="./videos/CoCoGesture_sample_v1/1207_prediction_withAudio.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="col-md-6">
+              <video controls class="d-block w-100">
+                <source src="./videos/CoCoGesture_sample_v1/13_prediction_withAudio.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-md-6">
+              <video controls class="d-block w-100">
+                <source src="./videos/CoCoGesture_sample_v1/2172_prediction_withAudio.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="col-md-6">
+              <video controls class="d-block w-100">
+                <source src="./videos/CoCoGesture_sample_v1/2240_prediction_withAudio.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-md-6">
+              <video controls class="d-block w-100">
+                <source src="./videos/CoCoGesture_sample_v1/27_prediction_withAudio.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="col-md-6">
+              <video controls class="d-block w-100">
+                <source src="./videos/CoCoGesture_sample_v1/30_prediction_withAudio.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-md-6">
+              <video controls class="d-block w-100">
+                <source src="./videos/CoCoGesture_sample_v1/305_prediction_withAudio.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="col-md-6">
+              <video controls class="d-block w-100">
+                <source src="./videos/CoCoGesture_sample_v1/3265_prediction_withAudio.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row">
+            <div class="col-md-6">
+              <video controls class="d-block w-100">
+                <source src="./videos/CoCoGesture_sample_v1/34_prediction_withAudio.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="col-md-6">
+              <video controls class="d-block w-100">
+                <source src="./videos/CoCoGesture_sample_v1/50_prediction_withAudio.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators1" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators1" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div> -->
+  </div>
+</div>
+  </div>  
+</section>
+
+<!-- Experiments -->
+ <section id="experiments">
+  <div class="container">
+ 
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="section-heading text-uppercase" style="color: rgb(90, 90, 90); margin-top: 30px">Experiments</h2>
+        <h3 class="section-subheading" style="color: rgb(171, 171, 171)">Extensive experiments and comprehensive results demonstrate that our proposed CoCoGesture outperforms the state-of-the-art methods on the zero-shot speech-to-gesture generation.</h3>
+      </div>
+    </div>
+	
+
+    <h5 class="section-subheading" style="text-align:left; color: rgb(100, 100, 100); margin-top: 20px">Methods Performance Comparison</h5>
+    <div class="row text-center">
+      <p class="text-muted" style="text-align:left; margin-left:15px"> 
+        Comparison with the state-of-the-art counterparts on BEAT2 and TalkSHOW datasets.        
+      </p>
+    <div style="padding:1rem; ">
+      <img src="./images/data_metrics.png" style="width: 80%" class="img-responsive"/> 
+    </div>
+    <p class="text-muted" style="text-align:left; margin-left:15px"> 
+    ↑ means the higher the better. <br>
+        ↓ indicates the lower the better. <br> 
+        “-” denotes that the method cannot be applied to the TalkSHOW dataset due to the lack of text transcripts. <br> 
+        The term “zero-shot” implies that the dataset contains unseen human voices.
+    </p>
+  </div>
+
+
+</br>
+	<h5 class="section-subheading" style="text-align:left; margin-top:20px; color: rgb(100, 100, 100)">Experiments on Model Scale and Pre-training</h5>
+	    <div class="row text-center">
+      <div style="padding:1rem; margin-top:20px; ">
+        <img src="./images/exp_scale.png" style="width: 80%" class="img-responsive"/> 
+      </div>
+      <p class="text-muted" style="text-align:left; margin-left:15px"> 
+        Ablation study on model scale and pre-training setting. <br>
+        ‡ denotes without pre-training stage.
+      </p>
+    </div>
+	
+	</br>
+	<h5 class="section-subheading" style="text-align:left; margin-top:20px; color: rgb(100, 100, 100)">Experiments on Mixture-of-Gesture-Experts (MoGE)</h5>
+	<div class="row text-center">
+    <div style="padding:1rem; margin-top:20px; ">
+      <img src="./images/exp_moge.png" style="width: 45%" class="img-responsive"/> 
+    </div>
+    <p class="text-muted" style="text-align:left; margin-left:15px"> 
+      Ablation study of MoGE block on BEAT2 dataset.
+  </div>
+	  </div> 
+
+</section>
+
+<section class="bg-transparent" id="metadata">
+  <div class="container">
+    
+    <!-- <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="section-heading text-uppercase">Download</h2>
+        <h3 class="section-subheading text-muted">Dataset publicly available for research purposes</h3>
+      </div>
+    </div> -->
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="section-heading text-uppercase">Metadata</h2>
+        <h3 class="section-subheading text-muted">Dataset metadata format</h3>
+      </div>
+    </div>
+<!-- 
+    <div class="row">
+      <div class="col-md-12"> 
+        
+        <h4 class="section-subheading" id="downloadFiles">Data download </h4><hr/>
+        
+        <p><b>Resources (Anonymous Now):</b>
+          <ul>
+            <li>All untrimmed videos: &nbsp;&nbsp; Download from&nbsp;
+              <a href="#">Google Drive</a>,&nbsp;</li>
+            <li>Mask Annotations: &nbsp;&nbsp; Download from&nbsp;
+               <a href="#">Google Drive</a>,&nbsp;</li>
+            <li>Bounding Box Annotations: &nbsp;&nbsp;, Download from&nbsp;
+			<a href="#">Google Drive</a>,&nbsp;</li>
+            </ul>
+        </p>
+
+        <p> <b>Annotations</b> (train, val and test set): Available for download at <a href="#">GitHub  (Anonymous Now):</a></p> -->
+		
+        <p> The format of a metadata JSON file is shown in below:</p>
+       <pre class="hidden-sm hidden-md hidden-lg">
+<em class="comment">(Please view the JSON format in larger screen.)</em>
+</pre>
+
+<pre class="hidden-xs">
+
+{'basic':       <em class="comment", style="color:#ff6600"># Each item in metadata list is a dict of a clip extracted from a longer video</em>
+    {'video_id': 'J-LQxBbQPTY',                 <em class="comment", style="color:#ff6600"># Video ID in GES-X</em>
+		'video_path': 'TED_Talk_Videos_key/J-LQxBbQPTY.mp4',                       <em class="comment", style="color:#ff6600"># Relative path of the dataset root path</em>
+		'video_duration': 792.52,               <em class="comment", style="color:#ff6600"># Duration of the video</em>
+		'video_resolution': [360, 640],
+		'video_fps': 25.0, 
+		'clip_id': 'J-LQxBbQPTY_0000000',           <em class="comment", style="color:#ff6600"># Clip ID</em>
+		'clip_path': 'J-LQxBbQPTY_0000000.mp4',          <em class="comment", style="color:#ff6600"># Relative path of the dataset root path</em>
+		'clip_duration': 0.96,            <em class="comment", style="color:#ff6600"># Duration of the clip itself/em>
+		'clip_start_end_idx': [0, 24],     <em class="comment", style="color:#ff6600"># Start frame_id and end frame_id</em>
+		'clip_start_end_time': ['00:00:00.000', '00:00:00.960']     <em class="comment", style="color:#ff6600"># Start timestamp and end timestamp</em>
+    }, 
+  {
+      ...
+  }
+}
+</pre>
+        
+        <br/>
+        <!-- <h4 class="section-subheading">Publication(s)</h4>
+        <p>
+          If you find our work useful in your research, please cite our paper.
+        </p>
+        <pre class="bibtex" style="text-align:left; margin-left:2px">
+        <code>
+        @ARTICLE{
+          title={Benchmarking Audio Visual Segmentation for Long-Untrimmed Videos},
+          author={anonymous},
+          year={2024},
+        }</code>
+        </pre> -->
+
+
+        <!-- <br/>
+        <h4 class="section-subheading">Disclaimer </h4>
+        <p> The released GES-X dataset is curated, which perhaps owns potential correlation between instrument and geographical area. This issue warrants further research and consideration.
+        </p> -->
+
+      </div>
+    </div>
+
+<!-- 
+    <br/>
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="section-subheading">Copyright <img alt="Creative Commons License" style="border-width:1px;float:left;margin-right:15px;margin-bottom:0px;" src="https://i.creativecommons.org/l/by-nc/3.0/88x31.png"/></h4>
+        <p>
+          All datasets and frameworks on this page are copyright by us and published under the <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International</a> License. This means that  you must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use. You may not use the material for commercial purposes.
+        </p>
+      </div>
+    </div> -->
+  </div>
+</section>
+
+    <div class="container">
+      <div class="row">
+      </div>
+    </div>
+</section>
+
+
+
+<script type="application/ld+json">
+{
+  "@context":"http://schema.org/",
+  "@type":"Dataset",
+  "name":"LU-AVS dataset",
+  "description":"First-person (egocentric) video dataset; multi-faceted non-scripted recordings in the wearers' homes, capturing all daily activities in the kitchen over multiple days. Annotations are collected using a novel live audio commentary approach.",
+  "url":"https://github.com/epic-kitchens/annotations",
+  "sameAs":"https://data.bris.ac.uk/data/dataset/3h91syskeag572hl6tvuovwv4d",
+  "citation":"Damen, Dima et al. 'Scaling Egocentric Vision: The EPIC-KITCHENS Dataset', European Conference on Computer Vision, 2018",
+  "identifier": "10.5523/bris.3h91syskeag572hl6tvuovwv4d",
+  "keywords":[
+     "Egocentric vision",
+     "Human actions",
+     "Object interactions",
+     "actions",
+     "video",
+     "kitchens",
+     "cooking",
+     "dataset",
+     "epic kitchens",
+     "epic",
+     "eccv",
+     "2022"
+  ],
+  "creator":{
+     "@type":"Organization",
+     "url": "https://epic-kitchens.github.io/",
+     "name":"EPIC Team",
+     "contactPoint":{
+        "@type":"ContactPoint",
+        "contactType": "technical support",
+        "email":"uob-epic-kitchens@bristol.ac.uk",
+        "url":"https://github.com/epic-kitchens/annotations/issues"
+     }
+  },
+  "distribution":[
+     {
+        "@type":"DataDownload",
+        "encodingFormat":"video/mp4",
+        "contentUrl":"https://data.bris.ac.uk/data/dataset/3h91syskeag572hl6tvuovwv4d"
+     },
+     {
+        "@type":"DataDownload",
+        "encodingFormat":"image/jpeg",
+        "contentUrl":"https://data.bris.ac.uk/data/dataset/3h91syskeag572hl6tvuovwv4d"
+     },
+     {
+        "@type":"DataDownload",
+        "encodingFormat":"text/csv",
+        "contentUrl":"https://github.com/epic-kitchens/annotations"
+     },
+     {
+        "@type":"DataDownload",
+        "encodingFormat":"application/octet-stream",
+        "contentUrl":"https://github.com/epic-kitchens/annotations"
+     }
+  ],
+  "license": "https://creativecommons.org/licenses/by-nc/4.0/"
+}
+</script>
+
+    
+    <!-- Footer -->
+    <footer style="background-color:#373435ff;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <img alt="Creative Commons License" style="border-width:1px;float:left;margin-right:15px;margin-bottom:0px;" src="http://i.creativecommons.org/l/by-nc/3.0/88x31.png"/>
+            <span class="copyright" style="color:#eee;">Copyright &copy;  (Anonymous Now):</span>
+          </div>
+          <div class="col-md-8">
+            <p style="color:#eee;">For any questions, email us at
+              <a href="mailto:#"> anonymous</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="./jquery/jquery.min.js"></script>
+    <script src="./jquery//bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="./jquery/jquery.easing.min.js"></script>
+    <!-- Custom scripts for this template -->
+    <script src="./jquery/agency.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+  </body>
+</html>
