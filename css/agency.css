@@ -1,7 +1,7 @@
 body {
   overflow-x: hidden;
   font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  background-color: rgb(247, 247, 249);
+  background-color: rgb(80, 80, 80);
 }
 
 p {
@@ -13,7 +13,7 @@ a {
 }
 
 a:hover {
-  color: #00b6d6;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -153,12 +153,12 @@ img::-moz-selection {
   font-weight: 400;
   padding: 0.75em 0;
   letter-spacing: 1px;
-  color: white;
+  color: rgb(242, 235, 220);
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
-  color: #0a72bc;
+  color: white;
   font-weight: bold;
 }
 
@@ -194,7 +194,9 @@ img::-moz-selection {
 }
 
 header.masthead {
-  color: rgb(171, 171, 171);
+  color:  rgb(65, 63, 60);
+  /* color:  rgb(255, 250, 240); */
+  background-color: rgb(203, 198, 193);
   background-repeat: no-repeat;
   background-attachment: scroll;
   -webkit-background-size: cover;
@@ -218,9 +220,9 @@ header.masthead .intro-text {
 header.masthead .intro-text .intro-lead-in {
   font-size: 20px;
   line-height: 20px;
-  margin-top: 50px;
-  margin-bottom: 15px;
-  color: rgb(137, 136, 136);
+  margin-top: 100px;
+  margin-bottom: 55px;
+  color:  rgb(5, 4, 0);
   font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-align: left;
   float: left;
@@ -263,9 +265,9 @@ header.masthead .intro-image img {
   }
   header.masthead .intro-text .intro-lead-in {
     float: left;
-    font-size: 40px;
+    font-size: 27px;
     line-height: 40px;
-    margin-bottom: 25px;
+    margin-bottom: 45px;
     font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
   header.masthead .intro-text .intro-heading {
