@@ -34,65 +34,48 @@ MMTrail is a large-scale multi-modality video-language dataset with over 20M tra
 ## Metadata format
 ```
 [
+  {
+    'basic':       # Each item in metadata list is a dict of a clip extracted from a longer trailer video
     {
-        "basic": {
-            "video_id": "-3r7ptfObEs",
-            "video_path": "group_33/-3r7ptfObEs.mp4",
-            "video_duration": 71.73333333333333,
-            "video_resolution": [
-                720,
-                1280
-            ],
-            "video_fps": 30.0,
-            "clip_id": "-3r7ptfObEs_0000000",
-            "clip_path": "video_dataset_33/-3r7ptfObEs_0000000.mp4",
-            "clip_duration": 7.033333333333333,
-            "clip_start_end_idx": [
-                0,
-                211
-            ],
-            "imaging_quality": 36.83453941345215,
-            "of_score": 12.92151,
-            "aesthetic_score": [
-                3.010026454925537,
-                3.664743423461914,
-                3.994750499725342
-            ]
-        },
-        "camera": {
-            "view_scale": "",
-            "movement": "",
-            "speed": ""
-        },
-        "misc": {
-            "frame_caption": [
-                "a person standing in a room with a laptop on their lap. ",
-                "a black and blue background with the name of the series. ",
-                "a black and white image of the words manga and comics. "
-            ],
-            "music_caption": [
-                {
-                    "text": "This is an indie rock music piece. There is a male vocalist singing melodically in the lead. The main tune is being played by the electric guitar while the bass guitar is playing in the background. The rhythm is provided by a simple acoustic drum beat. The atmosphere is easygoing. This piece could be used in the soundtrack of a teenage drama TV series as the opening theme.",
-                    "time": "0:00-10:00"
-                }
-            ]
-        },
-        "scene": {
-            "objects": [
-                " Matheus Trindade",
-                " de",
-                " original",
-                "Series",
-                " Manga & Comics"
-            ],
-            "background": "Dark",
-            "ocr_score": 0.07147466104497355,
-            "caption": "The video is a series of original de Matheus Trindade comics, showcasing the artist's unique style and storytelling.",
-            "polish_caption": "Original de Matheus Trindade comics showcase the artist's unique style and storytelling, featuring a series of vibrant and expressive illustrations that bring characters and scenes to life.",
-            "merge_caption": "In this captivating video, Matheus Trindade's original comics come to life with vibrant and expressive illustrations, showcasing the artist's unique style and storytelling. Set against a dark background, the video features a series of dynamic and colorful images, including a person sitting in a room with a laptop, a black and blue background with the name of the series, and a black and white image of the words \"manga\" and \"comics.\" The indie rock music piece, featuring a male vocalist and simple acoustic drum beat, adds an easygoing atmosphere to the video, making it perfect for the opening theme of a teenage drama TV series."
-        }
+      'video_id': 'zW1-6V_cN8I',                 # Video ID in MMTrail
+      'video_path': 'group_32/zW1-6V_cN8I.mp4',                       # Relative path of the dataset root path
+      'video_duration': 1645.52,               # Duration of the video
+      'video_resolution': [720, 1280],
+      'video_fps': 25.0, 
+      'clip_id': 'zW1-6V_cN8I_0000141',           # Clip ID
+      'clip_path': 'video_dataset_32/zW1-6V_cN8I_0000141.mp4',          # Relative path of the dataset root path
+      'clip_duration': 9.92,            # Duration of the clip itself
+      'clip_start_end_idx': [27102, 27350],     # Start frame_id and end frame_id
+      'image_quality': 45.510545094807945,      # Image quality score
+      'of_score': 6.993135,       # Optical flow score
+      'aesthetic_score': [4.515582084655762, 4.1147027015686035, 3.796849250793457], 
+      'music_caption_wo_vocal': [{'text': 'This song features a drum machine playing a simple beat. A siren sound is played on the low register. Then, a synth plays a descending lick and the other voice starts rapping. This is followed by a descending run. The mid range of the instruments cannot be heard. This song can be played in a meditation center.', 'time': '0:00-10:00'}],
+          # Music description of the background music without vocal (human voice).
+      'vocal_caption': 'I was just wondering...'
+          # Speech recongitation.
+    },
+    'misc':
+    {
+      'frame_caption': ['two people are standing in a room under an umbrella . ', 'a woman in a purple robe standing in front of a man . ', 'a man and a woman dressed in satin robes . '], 
+          # Coca caption of three key frame
+      'music_caption': [{'text': 'This music is instrumental. The tempo is medium with a synthesiser arrangement and digital drumming with a lot of vibrato and static. The music is loud, emphatic, youthful, groovy, energetic and pulsating. This music is a Electro Trap.', 'time': '0:00-10:00'}]
+          # Music description of the background music.
+    },
+    'scene':
+    {
+      'objects': [' bed', 'Woman', ' wall', ' pink robe', ' pillow'], 
+      'background': 'Bedroom', 
+      'ocr_score': 0.0, 
+      'caption': 'The video shows a woman in a pink robe standing in a room with a bed and a table, captured in a series of keyframes that show her in various poses and expressions.', 
+          # Caption generation from LLaVA and rewrite by LLAMA-13B
+      'polish_caption': 'A woman in a pink robe poses and expresses herself in various ways in a room with a bed and a table, capturing her graceful movements and emotive facial expressions.', 
+          # Polished caption generation from LLaVA and rewrite by LLAMA-13B
+      'merge_caption': 'In a cozy bedroom setting, a stunning woman adorned in a pink robe gracefully poses and expresses herself, her movements and facial expressions captured in a series of intimate moments. The scene is set against the backdrop of a comfortable bed and a table, with an umbrella standing in a corner of the room. The video features two people standing together under the umbrella, a woman in a purple robe standing confidently in front of a man, and a man and woman dressed in satin robes, all set to an energetic and pulsating electro trap beat with a synthesiser arrangement and digital drumming. The music is loud and emphatic, capturing the youthful and groovy vibe of the video.'
+          # The final description of the video. It is the merge of all above captions, and merged by LLaMA
     }
+  }
 ]
+
 ```
 
 
