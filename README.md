@@ -22,7 +22,7 @@ MMTrail is a large-scale multi-modality video-language dataset with over 20M tra
   |-----------------|----------|-----------------|-----------|----------------|
   | Training (20M)  | TODO (-) | 20M | 27.1 khrs | ~8.0 TB |
   | Training (2M)   | TODO (-)  | 2.1M | 8.2 khrs | ~1.6 TB |
-  | Training (2M(sample 1w))   | [Download]([https://mattie-e.github.io/M2Chat.github.io/](https://github.com/litwellchi/MMTrail/blob/main/MMTrail2M_sample1w.json)). | 2.1M | 8.2 khrs | ~1.6 TB |
+  | Training (2M(sample 1w))   | [Download](https://github.com/litwellchi/MMTrail/blob/main/MMTrail2M_sample1w.json). | 2.1M | 8.2 khrs | ~1.6 TB |
   | Testing         | TODO (2.77 MB)  | 1,000      | 3.5 hrs  | 794 Mb |
 
 
