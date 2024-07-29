@@ -77,10 +77,10 @@ MMTrail is a large-scale multi-modality video-language dataset with over 20M tra
 
 
 ## Notification
-The publish version code is still under development. 
+The published version code is still under development. 
 
 ## Licience
-cc-by-4.0
+The video samples are collected from a publicly available dataset. Users must follow the related license to use these video samples. We provide on the caption files.
 
 ## Cite MMtrail
 ```
