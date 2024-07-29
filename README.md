@@ -8,9 +8,9 @@ MMTrail is a large-scale multi-modality video-language dataset with over 20M tra
 </div>
 
 ## TODO
-- [ ] Release MMTrail-20M metadata
+- [ ] Release Processing code
+- [x] Release MMTrail-20M metadata
 - [x] Release MMTrail-2M metadata
-- [x] Release Processing code
 
 
 ## Updates!!
@@ -20,13 +20,13 @@ MMTrail is a large-scale multi-modality video-language dataset with over 20M tra
 
  | Split           | Download | # Samples | Video Duration | Storage Space|
   |-----------------|----------|-----------------|-----------|----------------|
-  | Training (20M)  | TODO (-) | 20M | 27.1 khrs | ~8.0 TB |
-  | Training (2M)   | TODO (-)  | 2.1M | 8.2 khrs | ~1.6 TB |
+  | Training (20M)  | [Download](https://huggingface.co/datasets/litwell/MMTrail-2M) | 20M | 27.1 khrs | ~8.0 TB |
+  | Training (2M)   | [Download](https://huggingface.co/datasets/litwell/MMTrail-2M)  | 2.1M | 8.2 khrs | ~1.6 TB |
   | Training (2M(sample 1w))   | [Download](https://github.com/litwellchi/MMTrail/blob/main/MMTrail2M_sample1w.json). | 2.1M | 8.2 khrs | ~1.6 TB |
   | Testing         | TODO (2.77 MB)  | 1,000      | 3.5 hrs  | 794 Mb |
 
 
-  
+
 ## Metadata format
 ```
 [
@@ -79,13 +79,10 @@ MMTrail is a large-scale multi-modality video-language dataset with over 20M tra
 The publish version code is still under development. 
 
 ## Licience
+cc-by-4.0
 
 ## Cite MMtrail
 ```
 TODO
 ```
-## Thanks
 
-
-```latex
-```
