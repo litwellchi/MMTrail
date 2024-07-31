@@ -3,8 +3,9 @@
 MMTrail is a large-scale multi-modality video-language dataset with over 20M trailer clips, featuring high-quality multimodal captions that integrate context, visual frames, and background music, aiming to enhance cross-modality studies and fine-grained multimodal-language model training.
 **In short, we provided 2M+ LLaVA Video captions, 2M+ Music captions, and 60M+ Coca frame captions for 27.1khrs of Trailer videos.**
 
+[![Arxiv](https://img.shields.io/badge/Arxiv-2407.20962-red)](https://arxiv.org/abs/2407.20962)
 [![Project Page](https://img.shields.io/badge/Project-Website-green)](https://mattie-e.github.io/MMTrail/)
-[🤗Huggingface](https://huggingface.co/datasets/litwell/MMTrail-20M)
+[![🤗Huggingface](https://img.shields.io/badge/🤗-Huggingface-yellow)](https://huggingface.co/datasets/litwell/MMTrail-20M)
 
 
 <div align='center'>
