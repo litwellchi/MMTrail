@@ -4,11 +4,9 @@ MMTrail is a large-scale multi-modality video-language dataset with over 20M tra
 **In short, we provided 2M+ LLaVA Video captions, 2M+ Music captions, and 60M+ Coca frame captions for 27.1khrs of Trailer videos.**
 
 
-<div align='center'>
 [![Arxiv](https://img.shields.io/badge/Arxiv-2407.20962-red)](https://arxiv.org/abs/2407.20962)
 [![Project Page](https://img.shields.io/badge/Project-Website-green)](https://mattie-e.github.io/MMTrail/)
 [![🤗Huggingface](https://img.shields.io/badge/🤗-Huggingface-yellow)](https://huggingface.co/datasets/litwell/MMTrail-20M)
-</div>
 
 <div align='center'>
 <img src="examples/teaser.png" class="interpolation-image" alt="teaser." height="96%" width="96%" />
