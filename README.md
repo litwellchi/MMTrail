@@ -71,7 +71,7 @@ MMTrail is a large-scale multi-modality video-language dataset with over 20M tra
 ## Notification
 The published version code is still under development. 
 
-## Licience
+## License
 The video samples are collected from a publicly available dataset. Users must follow the [related license](https://github.com/litwellchi/MMTrail/blob/main/RUDA1.0) to use these video samples. We provide on the caption files.
 
 ## Cite MMtrail
