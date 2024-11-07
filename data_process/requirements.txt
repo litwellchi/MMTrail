@@ -1,0 +1,14 @@
+argparse==1.4.0
+ffmpeg==1.4
+json5==0.9.25
+matplotlib==3.9.2
+numpy==1.26.4
+pandas==2.2.3
+pillow==11.0.0
+PyYAML==6.0.2
+requests==2.32.3
+scenedetect==0.6.4
+sympy==1.13.3
+tqdm==4.66.5
+typing==3.7.4.3
+typing_extensions==4.12.2
