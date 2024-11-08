@@ -25,8 +25,8 @@ MMTrail is a large-scale multi-modality video-language dataset with over 20M tra
 
 ## TODO
 - [ ] Release CCBY subset.
-- [ ] Merge the data cleaning pipeline to this repo.
-- [ ] adding videodataset script
+- [ ] Merge the data cleaning pipeline to this repo(Ongoing...).
+- [ ] adding video dataset script
 - [x] Release MMTrail-20M metadata
 - [x] Release MMTrail-2M metadata
 
