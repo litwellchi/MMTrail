@@ -11,4 +11,5 @@ pip install -r requirements.txt
 ```
 bash scripts/scenecut.sh {PATH_TO_RAW_VIDEOS} {PATH_TO_SAVE_CLIPS_AND_METADATA}
 ```
+### CoCa Caption
 

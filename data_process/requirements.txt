@@ -12,3 +12,4 @@ sympy==1.13.3
 tqdm==4.66.5
 typing==3.7.4.3
 typing_extensions==4.12.2
+open_clip_torch==2.29.0
